@@ -2,15 +2,7 @@ import { User } from '../models';
 import { generateId, validateEmail } from '../utils';
 
 class AuthController {
-  private users: User[] = [
-    {
-      id: '1',
-      name: 'Admin',
-      email: 'admin@restaurante.com',
-      password: '123456',
-      userType: 'admin'
-    }
-  ];
+  private users: User[] = [];
   private currentUser: User | null = null;
 
   register(name: string, email: string, password: string, userType: 'cliente' | 'admin'): { success: boolean; message: string } {
