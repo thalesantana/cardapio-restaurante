@@ -2,32 +2,7 @@ import { Product } from '../models';
 import { generateId } from '../utils';
 
 class ProductController {
-  private products: Product[] = [
-    {
-      id: '1',
-      name: 'Hambúrguer Artesanal',
-      description: 'Delicioso hambúrguer com carne artesanal, queijo, alface e tomate',
-      price: 25.90,
-      imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop',
-      restaurantId: '1'
-    },
-    {
-      id: '2',
-      name: 'Pizza Margherita',
-      description: 'Pizza tradicional italiana com molho de tomate, mozarela e manjericão',
-      price: 32.00,
-      imageUrl: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop',
-      restaurantId: '1'
-    },
-    {
-      id: '3',
-      name: 'Lasanha Bolonhesa',
-      description: 'Lasanha caseira com molho bolonhesa e queijos especiais',
-      price: 28.50,
-      imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop',
-      restaurantId: '1'
-    }
-  ];
+  private products: Product[] = [];
 
   create(
     name: string,

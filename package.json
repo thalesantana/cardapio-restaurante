@@ -1,6 +1,6 @@
 {
   "name": "cardapio-restaurante",
-  "license": "0BSD",
+  "license": "MIT",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
@@ -28,5 +28,5 @@
     "@types/react": "~19.0.10",
     "typescript": "~5.8.3"
   },
-  "private": true
+  "private": false
 }

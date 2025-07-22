@@ -45,7 +45,7 @@ persistência local)
 Este repositório contém todo o código-fonte do projeto, bem como os recursos
 visuais utilizados e instruções para execução local.
 ---
-**Aluno:** [Seu Nome Aqui]
-**Curso:** [Nome do Curso]
+**Aluno:** Thales Santana
+**Curso:** Arquitetura de Software
 **Professor:** Fernando Pereira
 **Entrega Individual - Trabalho Prático: App Mobile - Cardápio de Restaurante**
