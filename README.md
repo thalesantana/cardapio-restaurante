@@ -1,4 +1,4 @@
-# App Mobile - Cardápio de Restaurante
+# App Mobile - Cardápio de Restaurante 
 Este é um projeto desenvolvido como parte do **Trabalho Prático da disciplina
 de Aplicações Mobile**. O aplicativo simula o cardápio digital de um
 restaurante, com funcionalidades completas de cadastro, login e gerenciamento de
@@ -31,7 +31,7 @@ pratos, restaurantes e usuários.
 - Nome do prato em negrito
 - Descrição logo abaixo
 - Preço exibido à direita ou abaixo
-## Tecnologias Utilizadas
+## Tecnologias Utilizadas 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -43,6 +43,9 @@ Este repositório contém todo o código-fonte do projeto, bem como os recursos
 visuais utilizados e instruções para execução local.
 ---
 **Aluno:** Thales Santana
+
 **Curso:** Arquitetura de Software
+
 **Professor:** Fernando Pereira
+
 **Entrega Individual - Trabalho Prático: App Mobile - Cardápio de Restaurante**
