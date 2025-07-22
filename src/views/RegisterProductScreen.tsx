@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { Picker } from '@react-native-picker/picker';
+import { useIsFocused } from '@react-navigation/native';
+import React, { useEffect, useState } from "react";
 import {
   Alert,
   KeyboardAvoidingView,
@@ -9,15 +11,36 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { productController } from "../controllers";
+import { authController, productController, restaurantController } from "../controllers";
 import { RegisterProductScreenStyles } from "../styles";
 
+import { Restaurant } from '../models';
 export default function RegisterProductScreen() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [restaurantId, setRestaurantId] = useState("");
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+  const isFocused = useIsFocused();
+  
+  const loadRestaurants = () => {
+    const user = authController.getCurrentUser();
+    if (user && user.userType === "admin") {
+      const all = restaurantController.getAll();
+      setRestaurants(all);
+      if (all.length > 0 && !restaurantId) {
+        setRestaurantId(all[0].id);
+      }
+    }
+  };
+  
+  useEffect(() => {
+    if (isFocused) {
+      loadRestaurants();
+    }
+  }, [isFocused]);
 
   const handlePriceChange = (text: string) => {
     const numericValue = text.replace(/[^0-9,]/g, "");
@@ -40,7 +63,7 @@ export default function RegisterProductScreen() {
       description,
       priceValue,
       imageUrl,
-      "1"
+      restaurantId
     );
 
     if (result.success) {
@@ -74,6 +97,22 @@ export default function RegisterProductScreen() {
         </View>
 
         <View style={RegisterProductScreenStyles.form}>
+          <View style={RegisterProductScreenStyles.inputContainer}>
+            <Text style={RegisterProductScreenStyles.label}>Restaurante</Text>
+            <Picker
+              selectedValue={restaurantId}
+              onValueChange={setRestaurantId}
+              enabled={restaurants.length > 0}
+              style={{ backgroundColor: '#fff', borderRadius: 8 }}
+            >
+              {restaurants.length === 0 && (
+                <Picker.Item label="Nenhum restaurante cadastrado" value="" />
+              )}
+              {restaurants.map((r: any) => (
+                <Picker.Item key={r.id} label={r.name} value={r.id} />
+              ))}
+            </Picker>
+          </View>
           <View style={RegisterProductScreenStyles.inputContainer}>
             <Text style={RegisterProductScreenStyles.label}>Nome do Prato</Text>
             <TextInput
